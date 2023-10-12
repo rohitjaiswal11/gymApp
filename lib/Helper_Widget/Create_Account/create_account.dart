@@ -10,8 +10,8 @@ import 'package:lbm_fitness/Helper_Widget/Create_Account/create_accountConst.dar
 import 'package:lbm_fitness/Views/Email/email.dart';
 
 class Create_Account extends StatelessWidget {
-  const Create_Account({super.key});
-
+Create_Account({super.key});
+final _formKey =GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +95,23 @@ class Create_Account extends StatelessWidget {
                       SizedBox(
                         height: Get.height / 25,
                       ),
-                      CommmonBtn(btnname: 'Create an account', onPressed: () {Get.to( const Email());}),
+                      CommmonBtn(btnname: 'Create an account', onPressed: () {
+                        
+                              if (_formKey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(duration: Duration(seconds: 2,milliseconds: 500),
+                                margin: EdgeInsets.only(bottom: 100),
+                                content: Text('Processing Data',textAlign: TextAlign.center,),
+                                behavior: SnackBarBehavior.floating,
+                              ),
+                            );
+                        
+
+                        Get.to( Email());
+                        
+                              }
+                        
+                        }),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

@@ -17,6 +17,10 @@ class AppValidation {
     return null;
   }
 
+  static String? Validatenumeric(){
+
+  }
+
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter a password';
@@ -27,9 +31,9 @@ class AppValidation {
     return null;
   }
 
-  static String? accountValidator(String? data) {
+  static String? commonValidator(String? data) {
     if (data!.isEmpty) {
-      return "Please Enter Account Number";
+      return "Please Enter data";
     }
     return null;
   }

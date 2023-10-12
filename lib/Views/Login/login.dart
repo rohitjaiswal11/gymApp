@@ -76,7 +76,7 @@ class Login extends StatelessWidget {
                       
                       
                       //   },
-                      validator: (valu)=>AppValidation.validateEmail(valu),
+                      validator:AppValidation.validateEmail,
                       ),
                       SizedBox(
                         height: Get.height / 50,
@@ -88,17 +88,14 @@ class Login extends StatelessWidget {
                       TxtBox(
                         hint: 'Enter Password',
                         //obscureText: true,
-                        validator: (value) {
-
-
-                          AppValidation.validatePassword(value);
+                        validator:  AppValidation.validatePassword,
                           // if (value == null || value.isEmpty) {
                           //   return 'Please enter your password';
                           // } else if (value.length < 6) {
                           //   return 'Password must be at least 6 characters long';
                           // }
                           // return null;
-                        },
+                        
                         obscureText: true,
                       ),
                       SizedBox(
